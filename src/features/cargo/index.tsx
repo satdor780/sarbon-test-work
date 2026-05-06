@@ -14,7 +14,7 @@ export default function CargoDispatcher() {
     <div className="min-h-full bg-background font-sans">
       {/* Page header */}
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-        <div className="px-4 sm:px-6 lg:px-8 h-14 flex items-center gap-4">
+        <div className="px-4 sm:px-6 lg:px-8 h-14 flex items-center gap-4 max-md:mt-[50px] max-md:flex-col max-md:h-full max-md:items-start max-md:py-3! max-md:gap-2">
           {/* Breadcrumb */}
           <nav className="flex items-center text-xs text-muted-foreground gap-1.5">
             <span className="hover:text-foreground cursor-pointer transition-colors">
@@ -27,7 +27,7 @@ export default function CargoDispatcher() {
           <div className="flex-1" />
 
           {/* Search */}
-          <div className="flex items-center w-full max-w-xs h-8 bg-muted border border-border rounded-md overflow-hidden">
+          <div className="max-md:ml-auto flex items-center w-full max-w-xs h-8 bg-muted border border-border rounded-md overflow-hidden">
             <div className="h-full px-2.5 flex items-center justify-center">
               <Search className="w-3.5 h-3.5 text-muted-foreground" />
             </div>
@@ -62,7 +62,7 @@ export default function CargoDispatcher() {
         <div
           className={`
             overflow-hidden transition-all duration-600 ease-in-out
-            ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+            ${isOpen ? 'opacity-100' : 'max-h-0 opacity-0'}
           `}
         >
           <div className="pt-4 pb-2">
