@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚚 Sarbon App — Панель управления грузами
 
-## Getting Started
+Современная таблица управления грузами с фильтрацией, пагинацией, поддержкой трёх языков и полной адаптивностью.
 
-First, run the development server:
+---
+
+## 📸 Скриншоты
+
+| Загрузка                  | Ошибка                  | Пустой список          | Адаптив                  |
+| ------------------------- | ----------------------- | ---------------------- | ------------------------ |
+| ![Загрузка](public/1.jpg) | ![Ошибка](public/2.jpg) | ![Пусто](public/3.jpg) | ![Адаптив](public/4.jpg) |
+
+> Скриншоты находятся в папке `/public` проекта.
+
+---
+
+## ⚡ Запуск проекта
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Установить зависимости
+pnpm i
+
+# Запустить сервер разработки
+pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Открыть [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✅ Реализовано
 
-## Learn More
+- **Header** — Шапка приложения с логотипом и переключателем языка
+- **Filter Panel** — Панель фильтрации по дате, статусу и другим параметрам
+- **Cargo Table** — Таблица грузов с сортировкой и всеми данными
+- **Pagination** — Пагинация для навигации по большим спискам
+- **Loading State** — Скелетон-загрузчик пока данные загружаются
+- **Error State** — Экран ошибки с возможностью повторить запрос
+- **Empty State** — Экран пустого списка когда нет результатов
+- **Переводы** — Полная поддержка трёх языков:
+  - 🇺🇿 Узбекский (`uz`)
+  - 🇷🇺 Русский (`ru`)
+  - 🇬🇧 Английский (`en`)
+- **Адаптивность** — Корректное отображение на десктопе, планшете и мобильном
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠 Стек технологий
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Категория           | Технология                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| Фреймворк           | [Next.js 16](https://nextjs.org/)                                                        |
+| Язык                | [TypeScript 5](https://www.typescriptlang.org/)                                          |
+| Стилизация          | [Tailwind CSS v4](https://tailwindcss.com/)                                              |
+| UI-компоненты       | [shadcn/ui](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/)              |
+| Запросы к API       | [TanStack React Query v5](https://tanstack.com/query) + [Axios](https://axios-http.com/) |
+| Интернационализация | [next-intl](https://next-intl-docs.vercel.app/)                                          |
+| Иконки              | [Lucide React](https://lucide.dev/)                                                      |
+| Работа с датами     | [date-fns](https://date-fns.org/) + [React Day Picker](https://react-day-picker.js.org/) |
+| Флаги стран         | [react-country-flag](https://www.npmjs.com/package/react-country-flag)                   |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Интернационализация
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Приложение поддерживает три языка через `next-intl`. Файлы переводов находятся в `/messages/`:
+
+```
+messages/
+├── uz.json   # Узбекский
+├── ru.json   # Русский
+└── en.json   # Английский
+```
+
+Язык переключается через селектор с флагом в шапке приложения.
+
+---
+
+## 📦 Доступные команды
+
+```bash
+pnpm dev      # Запуск сервера разработки
+pnpm build    # Сборка для продакшена
+pnpm start    # Запуск продакшен-сервера
+pnpm lint     # Проверка кода через ESLint
+```
