@@ -9,6 +9,7 @@
       "placeholder": "Поиск груза..."
     },
     "filters": {
+      "name": "фильтры",
       "fromCity": {
         "label": "Город загрузки",
         "placeholder": "Откуда"
@@ -39,6 +40,7 @@
       "hasOffers": "Есть предложения",
       "favorite": "Избранное",
       "sort": {
+        "default": "Сортировка",
         "newest": "Новые (по дате создания)",
         "priceAsc": "Цена: по возрастанию",
         "priceDesc": "Цена: по убыванию"
@@ -71,6 +73,8 @@
     "driverManagers": "Менеджеры водителей",
     "gpsTracking": "GPS отслеживание",
     "role": "Менеджер грузов",
-    "favourites": "лайки"
+    "favourites": "Лайки",
+    "notifications": "Уведомления",
+    "settings": "Настройки"
   }
 }

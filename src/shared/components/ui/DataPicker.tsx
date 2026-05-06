@@ -43,9 +43,9 @@ export function DateRangePicker({
 
   return (
     <div className={cn("flex-1  w-full", className)}>
-      <label className="block text-[0.75rem] font-semibold text-zinc-500 mb-1.5">
+      {/* <label className="block text-[0.75rem] font-semibold text-zinc-500 mb-1.5">
         {t("label")}
-      </label>
+      </label> */}
 
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
@@ -53,7 +53,7 @@ export function DateRangePicker({
             className={cn(
               "flex items-center w-full gap-2 bg-white border border-zinc-200 rounded-lg px-3 h-9",
               "hover:border-zinc-300 transition-colors",
-              "focus:outline-none focus:ring-1 focus:ring-blue-500",
+              "focus:outline-none focus:ring-1 focus:ring-blue-500 h-8",
             )}
           >
             {/* Boshlanish — прижат влево */}

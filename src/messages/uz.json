@@ -9,6 +9,7 @@
       "placeholder": "Yuk qidirish..."
     },
     "filters": {
+      "name": "Filterlar",
       "fromCity": {
         "label": "Yuklash shahri",
         "placeholder": "Qayerdan"
@@ -39,6 +40,7 @@
       "hasOffers": "Takliflari bor",
       "favorite": "Sevimli",
       "sort": {
+        "default": "Sortirovka",
         "newest": "Yangi (yaratilgan sana bo'yicha)",
         "priceAsc": "Narx: arzondan qimmatga",
         "priceDesc": "Narx: qimmatdan arzonga"
@@ -71,6 +73,8 @@
     "driverManagers": "Haydovchi menejerlari",
     "gpsTracking": "GPS kuzatuv",
     "role": "Yuk menejeri",
-    "favourites": "layklar"
+    "favourites": "layklar",
+    "notifications": "Bildirishnomalar",
+    "settings": "Sozlamalar"
   }
 }

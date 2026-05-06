@@ -20,17 +20,17 @@ export function CargoFilters() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
   const triggerClass =
-    "w-full h-9! text-[0.875rem] border-zinc-200 rounded-md bg-zinc-50 focus:ring-0 focus:outline-none focus-visible:ring-0 focus-visible:outline-none";
+    "w-full h-8 text-[0.8125rem] border-border rounded-md bg-background hover:bg-accent focus:ring-0 focus:outline-none focus-visible:ring-0 focus-visible:outline-none transition-colors";
+
+  const labelClass = "block text-[0.6875rem] font-medium text-muted-foreground mb-1 tracking-wide";
 
   return (
-    <div className="bg-white rounded-xl border border-zinc-200 shadow-sm p-4 md:p-5">
-      {/* Row 1: 1 col → 2 col (tablet) → 4 col (desktop) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-3 md:mb-4">
+    <div className="bg-card rounded-lg border border-border shadow-sm p-4 md:p-5">
+      {/* Row 1 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
         {/* From city */}
         <div>
-          <label className="block text-[0.75rem] font-semibold text-zinc-500 mb-1.5">
-            {t("fromCity.label")}
-          </label>
+          <label className={labelClass}>{t("fromCity.label")}</label>
           <Select>
             <SelectTrigger className={triggerClass}>
               <SelectValue placeholder={t("fromCity.placeholder")} />
@@ -45,9 +45,7 @@ export function CargoFilters() {
 
         {/* To city */}
         <div>
-          <label className="block text-[0.75rem] font-semibold text-zinc-500 mb-1.5">
-            {t("toCity.label")}
-          </label>
+          <label className={labelClass}>{t("toCity.label")}</label>
           <Select>
             <SelectTrigger className={triggerClass}>
               <SelectValue placeholder={t("toCity.placeholder")} />
@@ -62,17 +60,13 @@ export function CargoFilters() {
 
         {/* Transport */}
         <div>
-          <label className="block text-[0.75rem] font-semibold text-zinc-500 mb-1.5">
-            {t("transport.label")}
-          </label>
+          <label className={labelClass}>{t("transport.label")}</label>
           <Select>
             <SelectTrigger className={triggerClass}>
               <SelectValue placeholder={t("transport.placeholder")} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="tentli">
-                {t("transport.options.tentli")}
-              </SelectItem>
+              <SelectItem value="tentli">{t("transport.options.tentli")}</SelectItem>
               <SelectItem value="ref">{t("transport.options.ref")}</SelectItem>
               <SelectItem value="box">{t("transport.options.box")}</SelectItem>
             </SelectContent>
@@ -81,50 +75,35 @@ export function CargoFilters() {
 
         {/* Weight */}
         <div>
-          <label className="block text-[0.75rem] font-semibold text-zinc-500 mb-1.5">
-            {t("weight.label")}
-          </label>
+          <label className={labelClass}>{t("weight.label")}</label>
           <div className="flex">
             <Input
               placeholder={t("weight.min")}
-              className="h-9 text-[0.875rem] border-zinc-200 bg-zinc-50 rounded-tr-none rounded-br-none"
+              className="h-8 text-[0.8125rem] border-border bg-background rounded-tr-none rounded-br-none focus-visible:ring-0 focus-visible:z-10"
             />
             <Input
               placeholder={t("weight.max")}
-              className="h-9 text-[0.875rem] border-zinc-200 bg-zinc-50 rounded-tl-none rounded-bl-none"
+              className="h-8 text-[0.8125rem] border-border bg-background rounded-tl-none rounded-bl-none -ml-px focus-visible:ring-0 focus-visible:z-10"
             />
           </div>
         </div>
       </div>
 
-      {/* Row 2: 1 col → 2 col (tablet) → 4 col (desktop) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-        {/* Date range — full width on mobile, spans naturally on larger */}
+      {/* Row 2 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-center">
+        {/* Date range */}
         <div className="sm:col-span-1">
+        
+        <label className={labelClass}>{t("date.label")}</label>
           <DateRangePicker value={dateRange} onChange={setDateRange} />
         </div>
 
-        {/* Checkboxes — side by side on mobile, individual cells on desktop */}
-        <div className="flex items-center gap-6 sm:mt-0 lg:mt-5">
-          <label className="flex items-center gap-2 cursor-pointer select-none">
-            <Checkbox className="border-zinc-300 data-[state=checked]:bg-[#2563eb] data-[state=checked]:border-[#2563eb]" />
-            <span className="text-[0.875rem] text-gray-500 font-semibold">
-              {t("hasOffers")}
-            </span>
-          </label>
-        </div>
-
-        <div className="flex items-center lg:mt-5">
-          <label className="flex items-center gap-2 cursor-pointer select-none">
-            <Checkbox className="border-zinc-300 data-[state=checked]:bg-[#2563eb] data-[state=checked]:border-[#2563eb]" />
-            <span className="text-[0.875rem] text-gray-500 font-semibold">
-              {t("favorite")}
-            </span>
-          </label>
-        </div>
+        {/* Has offers */}
+        
 
         {/* Sort */}
-        <div className="lg:mt-5">
+        <div>
+          <label className={labelClass}>{t('sort.default')}</label>
           <Select defaultValue="newest">
             <SelectTrigger className={triggerClass}>
               <SelectValue placeholder="Sort" />
@@ -135,6 +114,25 @@ export function CargoFilters() {
               <SelectItem value="price_desc">{t("sort.priceDesc")}</SelectItem>
             </SelectContent>
           </Select>
+        </div>
+
+        <div className="flex items-center lg:items-center pb-0.5 mt-5">
+          <label className="flex items-center gap-2 cursor-pointer select-none">
+            <Checkbox className="border-border data-[state=checked]:bg-foreground data-[state=checked]:border-foreground rounded" />
+            <span className="text-[0.8125rem] text-muted-foreground font-medium">
+              {t("hasOffers")}
+            </span>
+          </label>
+        </div>
+
+        {/* Favorite */}
+        <div className="flex items-center lg:items-center pb-0.5 mt-5">
+          <label className="flex items-center gap-2 cursor-pointer select-none">
+            <Checkbox className="border-border data-[state=checked]:bg-foreground data-[state=checked]:border-foreground rounded" />
+            <span className="text-[0.8125rem] text-muted-foreground font-medium">
+              {t("favorite")}
+            </span>
+          </label>
         </div>
       </div>
     </div>

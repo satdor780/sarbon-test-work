@@ -9,6 +9,7 @@
       "placeholder": "Search cargo..."
     },
     "filters": {
+      "name": "filtres",
       "fromCity": {
         "label": "Loading city",
         "placeholder": "From where"
@@ -39,6 +40,7 @@
       "hasOffers": "Has offers",
       "favorite": "Favorite",
       "sort": {
+        "default": "Sort",
         "newest": "Newest (by creation date)",
         "priceAsc": "Price: low to high",
         "priceDesc": "Price: high to low"
@@ -71,6 +73,8 @@
     "driverManagers": "Driver managers",
     "gpsTracking": "GPS tracking",
     "role": "Cargo manager",
-    "favourites": "likes"
+    "favourites": "Favourites",
+    "notifications": "Notifications",
+    "settings": "Settings"
   }
 }

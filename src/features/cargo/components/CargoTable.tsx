@@ -44,11 +44,11 @@ function CargoTableHeader() {
 
   return (
     <TableHeader>
-      <TableRow className="bg-zinc-50 hover:bg-zinc-50">
+      <TableRow className="bg-muted/50 hover:bg-muted/50 border-b border-border">
         {columns.map((col, i) => (
           <TableHead
             key={i}
-            className="px-5 py-2.5 text-[0.6875rem] font-semibold text-gray-500 uppercase tracking-wider whitespace-nowrap border-r border-zinc-200"
+            className="px-4 py-2.5 text-[0.6875rem] font-medium text-muted-foreground uppercase tracking-wider whitespace-nowrap border-r border-border last:border-r-0"
           >
             {col}
           </TableHead>
@@ -84,9 +84,8 @@ function TablePagination({
     }, []);
 
   return (
-    <div className="flex items-center justify-between px-4 py-3 border-t border-zinc-200 bg-zinc-50 flex-wrap gap-2">
-      {/* Page size selector */}
-      <div className="flex items-center gap-2 text-sm text-zinc-500">
+    <div className="flex items-center justify-between px-4 py-3 border-t border-border bg-muted/30 flex-wrap gap-2">
+      <div className="flex items-center gap-2 text-xs text-muted-foreground">
         <span>Показывать</span>
         <Select
           value={String(pageSize)}
@@ -95,7 +94,7 @@ function TablePagination({
             onPageChange(1);
           }}
         >
-          <SelectTrigger className="h-8 w-[70px] text-sm">
+          <SelectTrigger className="h-7 w-[65px] text-xs border-border">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -111,16 +110,13 @@ function TablePagination({
         </span>
       </div>
 
-      {/* Shadcn Pagination */}
       <Pagination className="w-auto mx-0">
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
               onClick={() => onPageChange(page - 1)}
               aria-disabled={page <= 1}
-              className={
-                page <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"
-              }
+              className={page <= 1 ? "pointer-events-none opacity-40" : "cursor-pointer"}
             />
           </PaginationItem>
 
@@ -146,11 +142,7 @@ function TablePagination({
             <PaginationNext
               onClick={() => onPageChange(page + 1)}
               aria-disabled={page >= totalPages}
-              className={
-                page >= totalPages
-                  ? "pointer-events-none opacity-50"
-                  : "cursor-pointer"
-              }
+              className={page >= totalPages ? "pointer-events-none opacity-40" : "cursor-pointer"}
             />
           </PaginationItem>
         </PaginationContent>
@@ -170,8 +162,8 @@ export function CargoTable() {
 
   if (isLoading) {
     return (
-      <div className="bg-white rounded-xl border border-zinc-200 shadow-sm overflow-hidden">
-        <div className="flex items-center justify-center gap-2 py-16 text-zinc-400 text-sm">
+      <div className="bg-card rounded-lg border border-border shadow-sm overflow-hidden">
+        <div className="flex items-center justify-center gap-2 py-16 text-muted-foreground text-sm">
           <Loader2 className="w-4 h-4 animate-spin" />
           <span>Загрузка...</span>
         </div>
@@ -181,12 +173,12 @@ export function CargoTable() {
 
   if (isError) {
     return (
-      <div className="bg-white rounded-xl border border-zinc-200 shadow-sm overflow-hidden">
+      <div className="bg-card rounded-lg border border-border shadow-sm overflow-hidden">
         <div className="flex flex-col items-center justify-center py-16 gap-3">
-          <p className="text-red-400 text-sm">Ошибка загрузки данных</p>
+          <p className="text-destructive text-sm">Ошибка загрузки данных</p>
           <button
             onClick={() => setPage(1)}
-            className="text-xs text-zinc-500 underline underline-offset-2 hover:text-zinc-700"
+            className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors"
           >
             Попробовать снова
           </button>
@@ -196,7 +188,7 @@ export function CargoTable() {
   }
 
   return (
-    <div className="cargo-table-root bg-white rounded-xl border border-zinc-200 shadow-sm overflow-hidden">
+    <div className="bg-card rounded-lg border border-border shadow-sm overflow-hidden">
       <div className="overflow-x-auto">
         <Table>
           <CargoTableHeader />
@@ -205,7 +197,7 @@ export function CargoTable() {
               <TableRow>
                 <TableCell
                   colSpan={7}
-                  className="py-16 text-center text-sm text-zinc-400"
+                  className="py-16 text-center text-sm text-muted-foreground"
                 >
                   Нет данных для отображения
                 </TableCell>
