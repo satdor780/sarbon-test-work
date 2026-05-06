@@ -1,10 +1,11 @@
+import { routing } from "@/src/shared/i18n";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { routing } from "@/src/i18n";
+
 import { Roboto } from "next/font/google";
-import { QueryProvider } from "@/src/providers";
-import Header from "@/src/components/layout/Header";
+import { QueryProvider } from "@/src/shared/providers";
+import Header from "@/src/shared/components/layout/Header";
 
 const roboto = Roboto({
   variable: "--font-roboto",

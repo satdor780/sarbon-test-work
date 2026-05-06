@@ -1,0 +1,76 @@
+{
+  "cargo": {
+    "breadcrumb": {
+      "home": "Home",
+      "allCargoes": "All cargo"
+    },
+    "title": "All cargo",
+    "search": {
+      "placeholder": "Search cargo..."
+    },
+    "filters": {
+      "fromCity": {
+        "label": "Loading city",
+        "placeholder": "From where"
+      },
+      "toCity": {
+        "label": "Unloading city",
+        "placeholder": "To where"
+      },
+      "transport": {
+        "label": "Transport",
+        "placeholder": "Select cargo type",
+        "options": {
+          "tentli": "Curtain-side",
+          "ref": "Reefer",
+          "box": "Box"
+        }
+      },
+      "weight": {
+        "label": "Weight (t)",
+        "min": "Min",
+        "max": "Max"
+      },
+      "date": {
+        "label": "Date",
+        "start": "Start",
+        "end": "End"
+      },
+      "hasOffers": "Has offers",
+      "favorite": "Favorite",
+      "sort": {
+        "newest": "Newest (by creation date)",
+        "priceAsc": "Price: low to high",
+        "priceDesc": "Price: high to low"
+      }
+    },
+    "table": {
+      "columns": {
+        "from": "From",
+        "to": "To",
+        "price": "Price",
+        "cargo": "Cargo",
+        "transport": "Transport",
+        "buyer": "Customer"
+      }
+    },
+    "row": {
+      "cash": "Cash",
+      "ton": "t",
+      "m3": "m³",
+      "favorite": "Add to favorites",
+      "share": "Share"
+    }
+  },
+  "Header": {
+    "dashboard": "Dashboard",
+    "cargos": "Cargo",
+    "myCargos": "My cargo",
+    "offers": "Offers",
+    "trips": "Trips",
+    "driverManagers": "Driver managers",
+    "gpsTracking": "GPS tracking",
+    "role": "Cargo manager",
+    "favourites": "likes"
+  }
+}

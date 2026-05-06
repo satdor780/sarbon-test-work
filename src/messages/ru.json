@@ -1,0 +1,76 @@
+{
+  "cargo": {
+    "breadcrumb": {
+      "home": "Главная",
+      "allCargoes": "Все грузы"
+    },
+    "title": "Все грузы",
+    "search": {
+      "placeholder": "Поиск груза..."
+    },
+    "filters": {
+      "fromCity": {
+        "label": "Город загрузки",
+        "placeholder": "Откуда"
+      },
+      "toCity": {
+        "label": "Город выгрузки",
+        "placeholder": "Куда"
+      },
+      "transport": {
+        "label": "Транспорт",
+        "placeholder": "Выберите тип груза",
+        "options": {
+          "tentli": "Тент",
+          "ref": "Реф",
+          "box": "BOX"
+        }
+      },
+      "weight": {
+        "label": "Вес (т)",
+        "min": "Мин",
+        "max": "Макс"
+      },
+      "date": {
+        "label": "Дата",
+        "start": "Начало",
+        "end": "Конец"
+      },
+      "hasOffers": "Есть предложения",
+      "favorite": "Избранное",
+      "sort": {
+        "newest": "Новые (по дате создания)",
+        "priceAsc": "Цена: по возрастанию",
+        "priceDesc": "Цена: по убыванию"
+      }
+    },
+    "table": {
+      "columns": {
+        "from": "Откуда",
+        "to": "Куда",
+        "price": "Цена",
+        "cargo": "Груз",
+        "transport": "Транспорт",
+        "buyer": "Заказчик"
+      }
+    },
+    "row": {
+      "cash": "Наличные",
+      "ton": "т",
+      "m3": "м³",
+      "favorite": "Добавить в избранное",
+      "share": "Поделиться"
+    }
+  },
+  "Header": {
+    "dashboard": "Панель управления",
+    "cargos": "Грузы",
+    "myCargos": "Мои грузы",
+    "offers": "Предложения",
+    "trips": "Рейсы",
+    "driverManagers": "Менеджеры водителей",
+    "gpsTracking": "GPS отслеживание",
+    "role": "Менеджер грузов",
+    "favourites": "лайки"
+  }
+}
