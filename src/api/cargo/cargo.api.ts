@@ -20,7 +20,7 @@ export const getAllCargo = async (params?: {
     },
   );
 
-  data.data.items = [];
+  // data.data.items = [];
 
   return data;
 };

@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import { useTranslations } from "next-intl";
 import { CargoRow } from "./CargoRow";
 import { useCargoList } from "@/src/api";
@@ -29,12 +29,12 @@ import {
 } from "@/src/components/shadcn/ui/pagination";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
-
+ 
 const PAGE_SIZE_OPTIONS = [5, 10, 25, 50] as const;
-
+ 
 function CargoTableHeader() {
   const t = useTranslations("cargo.table.columns");
-
+ 
   const columns = [
     t("from"),
     t("to"),
@@ -44,7 +44,7 @@ function CargoTableHeader() {
     t("buyer"),
     "",
   ] as const;
-
+ 
   return (
     <TableHeader>
       <TableRow className="bg-zinc-50 hover:bg-zinc-50">
@@ -60,7 +60,7 @@ function CargoTableHeader() {
     </TableHeader>
   );
 }
-
+ 
 function TablePagination({
   page,
   pageSize,
@@ -77,7 +77,7 @@ function TablePagination({
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const from = total === 0 ? 0 : (page - 1) * pageSize + 1;
   const to = Math.min(page * pageSize, total);
-
+ 
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1)
     .filter((p) => p === 1 || p === totalPages || Math.abs(p - page) <= 1)
     .reduce<(number | "...")[]>((acc, p, idx, arr) => {
@@ -85,9 +85,9 @@ function TablePagination({
       acc.push(p);
       return acc;
     }, []);
-
+ 
   return (
-    <div className="flex items-center justify-between px-4 py-3 border-t border-zinc-200 bg-zinc-50">
+    <div className="flex items-center justify-between px-4 py-3 border-t border-zinc-200 bg-zinc-50 flex-wrap gap-2">
       {/* Page size selector */}
       <div className="flex items-center gap-2 text-sm text-zinc-500">
         <span>Показывать</span>
@@ -113,7 +113,7 @@ function TablePagination({
           {from}–{to} из {total}
         </span>
       </div>
-
+ 
       {/* Shadcn Pagination */}
       <Pagination className="w-auto mx-0">
         <PaginationContent>
@@ -124,7 +124,7 @@ function TablePagination({
               className={page <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
             />
           </PaginationItem>
-
+ 
           {pageNumbers.map((p, i) =>
             p === "..." ? (
               <PaginationItem key={`ellipsis-${i}`}>
@@ -142,7 +142,7 @@ function TablePagination({
               </PaginationItem>
             )
           )}
-
+ 
           <PaginationItem>
             <PaginationNext
               onClick={() => onPageChange(page + 1)}
@@ -155,16 +155,16 @@ function TablePagination({
     </div>
   );
 }
-
+ 
 export function CargoTable() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-
+ 
   const { data, isLoading, isError } = useCargoList({ page, limit: pageSize });
-
+ 
   const total = data?.data.total ?? 0;
   const items = data?.data.items ?? [];
-
+ 
   if (isLoading) {
     return (
       <div className="bg-white rounded-xl border border-zinc-200 shadow-sm overflow-hidden">
@@ -175,7 +175,7 @@ export function CargoTable() {
       </div>
     );
   }
-
+ 
   if (isError) {
     return (
       <div className="bg-white rounded-xl border border-zinc-200 shadow-sm overflow-hidden">
@@ -191,27 +191,39 @@ export function CargoTable() {
       </div>
     );
   }
-
+ 
   return (
-    <div className="bg-white rounded-xl border border-zinc-200 shadow-sm overflow-hidden">
-      <Table>
-        <CargoTableHeader />
-        <TableBody>
-          {items.length === 0 ? (
-            <TableRow>
-              <TableCell
-                colSpan={7}
-                className="py-16 text-center text-sm text-zinc-400"
-              >
-                Нет данных для отображения
-              </TableCell>
-            </TableRow>
-          ) : (
-            items.map((cargo) => <CargoRow key={cargo.id} cargo={cargo} />)
-          )}
-        </TableBody>
-      </Table>
-
+    /*
+      cargo-table-root — служит точкой масштабирования через font-size.
+      Все дочерние rem-значения (CityFlag, CargoRow, заголовки) уменьшатся
+      пропорционально без правки каждого компонента.
+ 
+      Breakpoints (через глобальный CSS ниже — см. комментарий):
+        < 640px  → 11px  (mobile)
+        640–1024 → 13px  (tablet)
+        > 1024px → 16px  (desktop, браузерный default)
+    */
+    <div className="cargo-table-root bg-white rounded-xl border border-zinc-200 shadow-sm overflow-hidden">
+      <div className="overflow-x-auto">
+        <Table>
+          <CargoTableHeader />
+          <TableBody>
+            {items.length === 0 ? (
+              <TableRow>
+                <TableCell
+                  colSpan={7}
+                  className="py-16 text-center text-sm text-zinc-400"
+                >
+                  Нет данных для отображения
+                </TableCell>
+              </TableRow>
+            ) : (
+              items.map((cargo) => <CargoRow key={cargo.id} cargo={cargo} />)
+            )}
+          </TableBody>
+        </Table>
+      </div>
+ 
       <TablePagination
         page={page}
         pageSize={pageSize}

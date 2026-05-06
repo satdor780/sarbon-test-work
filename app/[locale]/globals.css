@@ -140,3 +140,21 @@
     @apply font-sans;
   }
 }
+
+html {
+  font-size: 11px;
+}
+
+/* Tablet — 640px–1024px */
+@media (min-width: 640px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Desktop — > 1024px */
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}

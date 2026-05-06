@@ -54,7 +54,7 @@ export function CargoRow({ cargo }: CargoRowProps) {
     : cargo.payment.total_amount.toLocaleString("en-US");
 
   return (
-    <TableRow className="group hover:bg-zinc-50/70 transition-colors h-[85px] min-h-[85ppx] max-h-[75px]">
+    <TableRow className="group hover:bg-zinc-50/70 transition-colors h-[5.3rem]">
       {/* From */}
       <TableCell className="px-5 py-3.5 border-r border-zinc-200">
         <CityFlag leg={fromPoint} />
