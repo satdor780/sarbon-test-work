@@ -1,6 +1,75 @@
 {
-  "home": {
-    "title": "Добро пожаловать",
-    "description": "Это наше приложение"
+  "cargo": {
+    "breadcrumb": {
+      "home": "Bosh sahifa",
+      "allCargoes": "Barcha yuklar"
+    },
+    "title": "Barcha yuklar",
+    "search": {
+      "placeholder": "Yuk qidirish..."
+    },
+    "filters": {
+      "fromCity": {
+        "label": "Yuklash shahri",
+        "placeholder": "Qayerdan"
+      },
+      "toCity": {
+        "label": "Tushirish shahri",
+        "placeholder": "Qayerga"
+      },
+      "transport": {
+        "label": "Transport",
+        "placeholder": "Yuk turini tanlang",
+        "options": {
+          "tentli": "Tentli",
+          "ref": "Ref",
+          "box": "BOX"
+        }
+      },
+      "weight": {
+        "label": "Og'irlik (t)",
+        "min": "Min",
+        "max": "Max"
+      },
+      "date": {
+        "label": "Sana",
+        "start": "Boshlanish",
+        "end": "Tugash"
+      },
+      "hasOffers": "Takliflari bor",
+      "favorite": "Sevimli",
+      "sort": {
+        "newest": "Yangi (yaratilgan sana bo'yicha)",
+        "priceAsc": "Narx: arzondan qimmatga",
+        "priceDesc": "Narx: qimmatdan arzonga"
+      }
+    },
+    "table": {
+      "columns": {
+        "from": "Qayerdan olish",
+        "to": "Qayerga",
+        "price": "Narx",
+        "cargo": "Yuk",
+        "transport": "Transport",
+        "buyer": "Buyurtmachi"
+      }
+    },
+    "row": {
+      "cash": "Naqd",
+      "ton": "t",
+      "m3": "m³",
+      "favorite": "Sevimliga qo'shish",
+      "share": "Ulashish"
+    }
+  },
+  "Header": {
+    "dashboard": "Dashboard",
+    "cargos": "Yuklar",
+    "myCargos": "Mening yuklarim",
+    "offers": "Takliflar",
+    "trips": "Reyslar",
+    "driverManagers": "Haydovchi menejerlari",
+    "gpsTracking": "GPS kuzatuv",
+    "role": "Yuk menejeri"
   }
 }
