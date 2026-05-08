@@ -116,7 +116,9 @@ function TablePagination({
             <PaginationPrevious
               onClick={() => onPageChange(page - 1)}
               aria-disabled={page <= 1}
-              className={page <= 1 ? "pointer-events-none opacity-40" : "cursor-pointer"}
+              className={
+                page <= 1 ? "pointer-events-none opacity-40" : "cursor-pointer"
+              }
             />
           </PaginationItem>
 
@@ -142,7 +144,11 @@ function TablePagination({
             <PaginationNext
               onClick={() => onPageChange(page + 1)}
               aria-disabled={page >= totalPages}
-              className={page >= totalPages ? "pointer-events-none opacity-40" : "cursor-pointer"}
+              className={
+                page >= totalPages
+                  ? "pointer-events-none opacity-40"
+                  : "cursor-pointer"
+              }
             />
           </PaginationItem>
         </PaginationContent>

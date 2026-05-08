@@ -46,7 +46,8 @@ export function CargoRow({ cargo }: CargoRowProps) {
   const toPoint = cargo.route_points.find((p) => p.is_main_unload);
 
   const cargoTypeName = cargo.cargo_type
-    ? (cargo.cargo_type[`name_${locale}` as LocaleKey] ?? cargo.cargo_type.name_ru)
+    ? (cargo.cargo_type[`name_${locale}` as LocaleKey] ??
+      cargo.cargo_type.name_ru)
     : null;
 
   const price = cargo.payment.price_request
@@ -68,7 +69,9 @@ export function CargoRow({ cargo }: CargoRowProps) {
       {/* Price */}
       <TableCell className="px-4 py-3 whitespace-nowrap border-r border-border">
         <div className="flex flex-col">
-          <span className="text-sm font-semibold text-foreground">${price}</span>
+          <span className="text-sm font-semibold text-foreground">
+            ${price}
+          </span>
           <span className="text-xs text-muted-foreground">{t("cash")}</span>
         </div>
       </TableCell>
@@ -79,12 +82,16 @@ export function CargoRow({ cargo }: CargoRowProps) {
           <div className="flex items-center gap-2.5 text-xs text-foreground">
             <span className="flex items-center gap-1">
               <Weight className="w-3 h-3 text-muted-foreground" />
-              <span className="font-medium">{cargo.weight} {t("ton")}</span>
+              <span className="font-medium">
+                {cargo.weight} {t("ton")}
+              </span>
             </span>
             <span className="text-border">·</span>
             <span className="flex items-center gap-1">
               <Box className="w-3 h-3 text-muted-foreground" />
-              <span className="font-medium">{cargo.volume} {t("m3")}</span>
+              <span className="font-medium">
+                {cargo.volume} {t("m3")}
+              </span>
             </span>
           </div>
           {(cargoTypeName || cargo.shipment_type) && (
@@ -103,7 +110,11 @@ export function CargoRow({ cargo }: CargoRowProps) {
           <div className="flex items-center gap-1.5 text-xs text-foreground">
             <Truck className="w-3 h-3 text-muted-foreground shrink-0" />
             <span className="leading-snug font-medium">
-              {[cargo.truck_type, cargo.trailer_plate_type, cargo.power_plate_type]
+              {[
+                cargo.truck_type,
+                cargo.trailer_plate_type,
+                cargo.power_plate_type,
+              ]
                 .filter(Boolean)
                 .join(" / ")}
             </span>
@@ -153,7 +164,10 @@ export function CargoRow({ cargo }: CargoRowProps) {
                 : "text-muted-foreground hover:text-rose-500 hover:bg-muted"
             }`}
           >
-            <Heart className="w-3.5 h-3.5" fill={liked ? "currentColor" : "none"} />
+            <Heart
+              className="w-3.5 h-3.5"
+              fill={liked ? "currentColor" : "none"}
+            />
           </button>
           <button
             aria-label={t("share")}
