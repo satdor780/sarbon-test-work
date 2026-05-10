@@ -42,8 +42,7 @@
       "sort": {
         "default": "Sort",
         "newest": "Newest (by creation date)",
-        "priceAsc": "Price: low to high",
-        "priceDesc": "Price: high to low"
+        "oldest": "By oldest"
       }
     },
     "table": {

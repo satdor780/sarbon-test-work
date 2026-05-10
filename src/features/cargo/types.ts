@@ -110,6 +110,8 @@ export interface RoutePoint {
 export interface getCargoParams {
   page?: number;
   limit?: number;
-  sort?: string;
+  sort?: SortValue;
   status?: string;
 }
+
+export type SortValue = "created_at:desc" | "created_at:asc";

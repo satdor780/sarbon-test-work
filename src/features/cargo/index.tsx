@@ -5,10 +5,21 @@ import { Search, SlidersHorizontal } from "lucide-react";
 import { CargoFilters, CargoTable } from "./components";
 import { Input } from "@/src/shared/components/shadcn/ui";
 import { useState } from "react";
+import type { SortValue } from "./types";
 
 export default function CargoDispatcher() {
   const t = useTranslations("cargo");
   const [isOpen, setIsOpen] = useState(false);
+
+  // filters
+
+  const [sort, setSort] = useState<SortValue>("created_at:desc");
+  const [page, setPage] = useState(1);
+
+  const handleSortChange = (value: SortValue) => {
+    setSort(value);
+    setPage(1);
+  };
 
   return (
     <div className="min-h-full bg-background font-sans">
@@ -92,14 +103,14 @@ export default function CargoDispatcher() {
             }`}
           >
             <div className="pt-4 pb-2">
-              <CargoFilters />
+              <CargoFilters sort={sort} onSortChange={setSort} />
             </div>
           </div>
         </div>
 
         {/* Table */}
         <div className="overflow-x-auto rounded-lg">
-          <CargoTable />
+          <CargoTable sort={sort} page={page} onPageChange={setPage} />
         </div>
       </div>
     </div>

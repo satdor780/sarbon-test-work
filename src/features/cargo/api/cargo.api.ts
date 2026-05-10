@@ -8,7 +8,7 @@ export const getAllCargo = async (params?: getCargoParams) => {
       params: {
         page: 1,
         limit: 20,
-        sort: "created_at:desc",
+        sort: params?.sort,
         status: "SEARCHING_ALL",
         ...params,
       },

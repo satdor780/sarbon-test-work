@@ -11,7 +11,7 @@ export const cargoKeys = {
 
 export const useCargoList = (params?: getCargoParams) => {
   return useQuery({
-    queryKey: cargoKeys.list(params),
+    queryKey: ["cargo", params?.page, params?.limit, params?.sort],
     queryFn: () => getAllCargo(params),
   });
 };

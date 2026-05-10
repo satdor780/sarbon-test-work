@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { CargoRow } from "./CargoRow";
 
 import { Loader2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -26,8 +26,9 @@ import {
   TableRow,
 } from "@/src/shared/components/shadcn/ui";
 import { useCargoList } from "../api";
+import { SortValue } from "../types";
 
-const PAGE_SIZE_OPTIONS = [5, 10, 25, 50] as const;
+const PAGE_SIZE_OPTIONS = [1, 5, 10, 25, 50] as const;
 
 function CargoTableHeader() {
   const t = useTranslations("cargo.table.columns");
@@ -157,11 +158,22 @@ function TablePagination({
   );
 }
 
-export function CargoTable() {
-  const [page, setPage] = useState(1);
+export function CargoTable({
+  sort,
+  page,
+  onPageChange,
+}: {
+  sort: SortValue;
+  page: number;
+  onPageChange: (page: number) => void;
+}) {
   const [pageSize, setPageSize] = useState(10);
 
-  const { data, isLoading, isError } = useCargoList({ page, limit: pageSize });
+  const { data, isLoading, isError, refetch } = useCargoList({
+    page,
+    limit: pageSize,
+    sort,
+  });
 
   const total = data?.data.total ?? 0;
   const items = data?.data.items ?? [];
@@ -183,7 +195,7 @@ export function CargoTable() {
         <div className="flex flex-col items-center justify-center py-16 gap-3">
           <p className="text-destructive text-sm">Ошибка загрузки данных</p>
           <button
-            onClick={() => setPage(1)}
+            onClick={() => refetch()}
             className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors"
           >
             Попробовать снова
@@ -219,8 +231,11 @@ export function CargoTable() {
         page={page}
         pageSize={pageSize}
         total={total}
-        onPageChange={setPage}
-        onPageSizeChange={setPageSize}
+        onPageChange={onPageChange}
+        onPageSizeChange={(size) => {
+          setPageSize(size);
+          onPageChange(1);
+        }}
       />
     </div>
   );

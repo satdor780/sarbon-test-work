@@ -42,8 +42,7 @@
       "sort": {
         "default": "Sortirovka",
         "newest": "Yangi (yaratilgan sana bo'yicha)",
-        "priceAsc": "Narx: arzondan qimmatga",
-        "priceDesc": "Narx: qimmatdan arzonga"
+        "oldest": "Eski (eskidan yangiga)"
       }
     },
     "table": {

@@ -13,8 +13,15 @@ import {
   SelectValue,
 } from "@/src/shared/components/shadcn/ui";
 import { DateRangePicker } from "@/src/shared/components/ui";
+import { SortValue } from "../types";
 
-export function CargoFilters() {
+export function CargoFilters({
+  sort,
+  onSortChange,
+}: {
+  sort: SortValue;
+  onSortChange: (value: SortValue) => void;
+}) {
   const t = useTranslations("cargo.filters");
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
@@ -102,14 +109,18 @@ export function CargoFilters() {
         {/* Sort */}
         <div>
           <label className={labelClass}>{t("sort.default")}</label>
-          <Select defaultValue="newest">
+          <Select
+            defaultValue="created_at:desc"
+            onValueChange={(v) => onSortChange(v as SortValue)}
+          >
             <SelectTrigger className={triggerClass}>
               <SelectValue placeholder="Sort" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="newest">{t("sort.newest")}</SelectItem>
-              <SelectItem value="price_asc">{t("sort.priceAsc")}</SelectItem>
-              <SelectItem value="price_desc">{t("sort.priceDesc")}</SelectItem>
+              <SelectItem value="created_at:desc">
+                {t("sort.newest")}
+              </SelectItem>
+              <SelectItem value="created_at:asc">{t("sort.oldest")}</SelectItem>
             </SelectContent>
           </Select>
         </div>
